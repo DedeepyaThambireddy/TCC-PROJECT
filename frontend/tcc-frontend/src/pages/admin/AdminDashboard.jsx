@@ -15,7 +15,7 @@ const AdminDashboard = () => {
     dispatchedConsignments: 0
   });
   const [loading, setLoading] = useState(true);
-  const [activities, setActivities] = useState([]); // <-- ADD THIS STATE
+  const [activities, setActivities] = useState([]); 
 
   useEffect(() => {
     // Use Promise.all to fetch everything at once

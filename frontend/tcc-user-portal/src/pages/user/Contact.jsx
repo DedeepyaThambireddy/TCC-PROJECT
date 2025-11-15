@@ -16,7 +16,7 @@ const Contact = () => {
         </div>
         <div>
           <h3 className="text-lg font-semibold text-gray-800">Head Office</h3>
-          <p className="text-gray-700">123 Transport Lane, Hyderabad, India</p>
+          <p className="text-gray-700"> Transport Lane, Kadapa, India</p>
         </div>
       </div>
     </>
