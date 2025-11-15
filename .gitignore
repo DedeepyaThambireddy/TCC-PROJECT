@@ -1,0 +1,18 @@
+# Ignore all node_modules folders in all projects
+**/node_modules
+
+# Ignore all build output folders
+**/dist
+
+# Ignore the backend's secret .env file (CRITICAL!)
+# This ensures you never push your passwords to GitHub.
+backend/.env
+
+# Ignore Vite's cache
+frontend/tcc-frontend/.vite/
+frontend/tcc-user-portal/.vite/
+frontend/homepage/.vite/
+
+# Ignore log files
+*.log
+npm-debug.log*
