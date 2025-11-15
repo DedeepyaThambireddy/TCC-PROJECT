@@ -11,8 +11,8 @@ const Contact = () => {
         </p>
         <div>
           <h3 className="text-lg font-semibold text-gray-800">Customer Support</h3>
-          <p className="text-gray-700">Email: <span className="text-blue-600">support@tccsystem.com</span></p>
-          <p className="text-gray-700">Phone: <span className="text-blue-600">+91 98765 43210</span></p>
+          <p className="text-gray-700">Email: <span className="text-blue-600">sana630863@gmail.com</span></p>
+          <p className="text-gray-700">Phone: <span className="text-blue-600">+91 8523076025</span></p>
         </div>
         <div>
           <h3 className="text-lg font-semibold text-gray-800">Head Office</h3>

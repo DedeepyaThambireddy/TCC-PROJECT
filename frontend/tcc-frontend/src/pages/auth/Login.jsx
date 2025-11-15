@@ -29,6 +29,17 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/auth/login', formData);
       
+      const { user } = response.data;
+
+      // --- THIS IS THE NEW SECURITY CHECK ---
+      // We check the role *before* logging them in.
+      if (user.role !== 'admin') {
+        setError('Invalid Credentials');
+        setLoading(false);
+        return; // Stop here. Do not log them in.
+      }
+      // --- END OF SECURITY CHECK ---
+
       if (response.data.token) {
         login(response.data.token);
         navigate('/dashboard');
@@ -98,14 +109,14 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="mt-6 text-center">
+        {/*<div className="mt-6 text-center">
           <p className="text-gray-600">
             Don't have an account?{' '}
             <Link to="/signup" className="text-blue-600 hover:text-blue-800 font-semibold">
               Sign up
             </Link>
           </p>
-        </div>
+        </div>*/}
       </div>
     </div>
   );

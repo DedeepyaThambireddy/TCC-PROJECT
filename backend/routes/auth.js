@@ -18,6 +18,21 @@ router.post('/signup', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
 
+    let finalRole = role || 'user'; // Default to 'user'
+
+    if (finalRole === 'admin') {
+      // Check if an admin already exists in the database
+      const adminExists = await User.findOne({ role: 'admin' });
+      
+      if (adminExists) {
+        // If an admin *already* exists, block this request.
+        return res.status(403).json({ message: 'Cannot register as an Admin. An Admin account already exists.' });
+      }
+      // If no admin exists, this is the first one. Allow it.
+      finalRole = 'admin';
+    }
+    // --- END OF SECURITY CHECK ---
+
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists with this email' });
